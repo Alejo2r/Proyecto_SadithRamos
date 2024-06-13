@@ -20,10 +20,6 @@ static Scanner lea = new Scanner(System.in);
         Pantalla p1 = new Pantalla();
         p1.setVisible(true);
         Jugar Jugador = new Jugar("Invitado",300);
-        System.out.println("-----GameStation-----");
-        System.out.println("Ingrese su nombre de usuario: ");
-        String nombre = lea.nextLine();
-        Jugador.setNombre(nombre);
     }
      public static void mostrarMatrizOculta(char[][] matriz) {
         System.out.println("Matriz oculta: ");
@@ -34,6 +30,7 @@ static Scanner lea = new Scanner(System.in);
             System.out.println();
         }
     }
+     
     public static char[][] crearMatrizOculta() {
         char[][] matrizOculta = new char[4][4];
         for (int i = 0; i < 4; i++) {
