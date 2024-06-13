@@ -17,6 +17,8 @@ static Scanner lea = new Scanner(System.in);
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Pantalla p1 = new Pantalla();
+        p1.setVisible(true);
         Jugar Jugador = new Jugar("Invitado",300);
         System.out.println("-----GameStation-----");
         System.out.println("Ingrese su nombre de usuario: ");
