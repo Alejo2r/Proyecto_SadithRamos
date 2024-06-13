@@ -8,13 +8,17 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import static proyectofinal.ProyectoFinal.crearMatrizOculta;
+import static proyectofinal.ProyectoFinal.mostrarMatrizOculta;
 
 /**
  *
@@ -23,6 +27,9 @@ import javax.swing.SwingConstants;
 public class Pantalla extends JFrame{
     public JPanel panel;
     public JTextField txt;
+    JRadioButton b;
+    JRadioButton b2;
+    JRadioButton b3;
     public Pantalla(){
         setSize(500,500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -64,6 +71,7 @@ public class Pantalla extends JFrame{
     JLabel p = new JLabel();
     p.setBounds(50,175,200,40);
     panel.add(p);
+    
     ActionListener accion = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -75,16 +83,34 @@ public class Pantalla extends JFrame{
     
 }
     private void radiobotones(){
-        JRadioButton b = new JRadioButton("Buscaminas");
+        b = new JRadioButton("Buscaminas", false);
         b.setBounds(50,210,200,40);
         panel.add(b);
-        JRadioButton b2 = new JRadioButton("Ahorcado");
+        b2 = new JRadioButton("Ahorcado", false);
         b2.setBounds(50,260,200,40);
         panel.add(b2);
-        JRadioButton b3 = new JRadioButton("Trivia");
+        b3 = new JRadioButton("Trivia" , false);
         b3.setBounds(50,310,200,40);
         panel.add(b3);
-        
+        ButtonGroup rBotones = new ButtonGroup();
+        rBotones.add(b);
+        rBotones.add(b2);
+        rBotones.add(b3);
+    JButton boton1 = new JButton("Aceptar");
+    boton1.setBounds(50,350, 100, 20);
+    boton1.setEnabled(true);
+    boton1.setForeground(Color.BLUE);
+    panel.add(boton1);
+    ActionListener accion = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        if(b.isSelected()){
+            char[][] matrizOculta = crearMatrizOculta();
+                mostrarMatrizOculta(matrizOculta); 
+        } 
+        }
+    };
+    boton1.addActionListener(accion);
     }
     
 }

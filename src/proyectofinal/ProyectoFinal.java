@@ -24,29 +24,6 @@ static Scanner lea = new Scanner(System.in);
         System.out.println("Ingrese su nombre de usuario: ");
         String nombre = lea.nextLine();
         Jugador.setNombre(nombre);
-        int o = 0;
-        do{    
-        System.out.println("Bienvenido(a) "+nombre+" que desea jugar?");
-        System.out.println("1) Buscaminas");
-        System.out.println("2) Ahorcado");
-        System.out.println("3) Trivia");
-        o = lea.nextInt();
-        lea.nextLine();
-        }while(o>3);
-        switch(o){
-            case 1:
-                char[][] matrizOculta = crearMatrizOculta();
-                mostrarMatrizOculta(matrizOculta); 
-                int[][] matrizSolucion = generarMatriz();
-                int vidas = 3;
-                break;
-            case 2:
-                System.out.println("Cargando....");
-               break;
-            case 3:
-                System.out.println("Cargando....");
-                break;
-        }
     }
      public static void mostrarMatrizOculta(char[][] matriz) {
         System.out.println("Matriz oculta: ");
