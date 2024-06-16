@@ -28,7 +28,6 @@ public class Pantalla extends JFrame{
     public JTextField txt;
     JRadioButton b;
     JRadioButton b2;
-    JRadioButton b3;
     public Pantalla(){
         setSize(500,500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -104,7 +103,11 @@ public class Pantalla extends JFrame{
         if(b.isSelected()){
             SecondFrame secondFrame = new SecondFrame();
             secondFrame.setVisible(true);
-        } 
+        }
+        else if(b2.isSelected()){
+            Ahorcado ahorcado = new Ahorcado();
+            ahorcado.setVisible(true);
+        }
         }
     };
     boton1.addActionListener(accion);
