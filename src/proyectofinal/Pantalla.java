@@ -69,7 +69,15 @@ public class Pantalla extends JFrame{
     JLabel p = new JLabel();
     p.setBounds(50,175,200,40);
     panel.add(p);
-    
+     JButton salir = new JButton("Salir");
+        salir.setBounds(200,300, 100, 20);
+        panel.add(salir);
+         ActionListener cerrar = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           dispose();
+        }
+    };
     ActionListener accion = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -78,7 +86,7 @@ public class Pantalla extends JFrame{
         }
     };
     boton1.addActionListener(accion);
-    
+    salir.addActionListener(cerrar);
 }
     private void radiobotones(){
         b = new JRadioButton("Buscaminas", false);
@@ -91,7 +99,7 @@ public class Pantalla extends JFrame{
         rBotones.add(b);
         rBotones.add(b2);
     JButton boton1 = new JButton("Aceptar");
-    boton1.setBounds(50,350, 100, 20);
+    boton1.setBounds(50,300, 100, 20);
     boton1.setEnabled(true);
     boton1.setForeground(Color.BLUE);
     panel.add(boton1);
@@ -183,7 +191,7 @@ public class Pantalla extends JFrame{
 
     if (minas[fila][columna]) {
         botones[fila][columna].setText("X");
-        JOptionPane.showMessageDialog(this, "Sos un pete, perdiste (mis roomies pudieron)");
+        JOptionPane.showMessageDialog(this, "Ha perdido(mis roomies pudieron)");
         mostrarMinas();
         bloquearBotones();
     } else {
@@ -200,7 +208,7 @@ public class Pantalla extends JFrame{
         }
 
         if (haGanado()) {
-            JOptionPane.showMessageDialog(this, "Ni vos sabes como ganaste xd");
+            JOptionPane.showMessageDialog(this, "Ganaste, eres increible :D");
             bloquearBotones();
         }
     }
